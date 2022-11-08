@@ -1,5 +1,6 @@
 mkdir -p ~/.streamlit/
 
+'''
 echo "\
 [general]\n\
 email = \"sozykin@gmail.com\"\n\
@@ -10,3 +11,4 @@ echo "\
 headless = true\n\
 port = $PORT\n\
 " > ~/.streamlit/config.toml
+...
