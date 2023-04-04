@@ -40,7 +40,7 @@ model = load_model()
 
 st.title('Классификации изображений в облаке Streamlit')
 img = load_image()
-st.image(https://yandex.ru/images/search?pos=0&from=tabbar&img_url=http%3A%2F%2Fgas-kvas.com%2Fuploads%2Fposts%2F2023-02%2F1675495562_gas-kvas-com-p-luchshie-kartinki-dlya-fonovogo-risunka-ra-18.jpg&text=картинка&rpt=simage&lr=10748)
+st.image("https://yandex.ru/images/search?pos=0&from=tabbar&img_url=http%3A%2F%2Fgas-kvas.com%2Fuploads%2Fposts%2F2023-02%2F1675495562_gas-kvas-com-p-luchshie-kartinki-dlya-fonovogo-risunka-ra-18.jpg&text=картинка&rpt=simage&lr=10748")
 result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
