@@ -40,7 +40,7 @@ model = load_model()
 
 st.title('Классификации изображений в облаке Streamlit')
 img = load_image()
-st.video("https://github.com/StasButton/test2/raw/main/Videos/19.mp4")
+
 result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
