@@ -64,7 +64,7 @@ if www is not '':
     st.write(df)
 
 
-'''
+
 
 if t is not '':
     
@@ -94,4 +94,4 @@ if t is not '':
             #st.write('Результат роботы нейросети')
             df.loc[0] = [1,0,0,0,0]
             st.write(df)
-'''
+
