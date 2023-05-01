@@ -1,8 +1,8 @@
 streamlit
-#tensorflow-cpu
-protobuf
 
-pip==23.1.2
+streamlit-drawable-canvas
+opencv-python-headless
+tensorflow
 
 
 ultralytics==8.0.20
