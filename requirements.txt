@@ -1,10 +1,14 @@
 streamlit
 
 '''
+pip==23.1.2
+
+
 ultralytics==8.0.20
 
-opencv-python-headless
 '''
+opencv-python-headless
+
 # Base ----------------------------------------
 gitpython
 ipython  # interactive notebook
