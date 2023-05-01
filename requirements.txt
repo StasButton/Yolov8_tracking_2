@@ -1,9 +1,6 @@
 streamlit
 
-streamlit-drawable-canvas
-opencv-python-headless
-tensorflow
-protobuf==3.20.1
+
 
 
 ultralytics==8.0.20
