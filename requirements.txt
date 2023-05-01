@@ -17,5 +17,6 @@ pandas>=1.1.4
 lap
 gdown
 filterpy
+easydict
 
 
