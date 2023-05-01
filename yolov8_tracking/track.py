@@ -1,5 +1,11 @@
-import argparse
+import streamlit as st
 import cv2
+import numpy as np
+import torch
+import torch.backends.cudnn as cudnn
+
+
+import argparse
 import os
 # limit the number of cpus used by high performance libraries
 os.environ["OMP_NUM_THREADS"] = "1"
@@ -10,10 +16,9 @@ os.environ["NUMEXPR_NUM_THREADS"] = "1"
 
 import sys
 import platform
-import numpy as np
+
 from pathlib import Path
-import torch
-import torch.backends.cudnn as cudnn
+
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # yolov5 strongsort root directory
@@ -29,6 +34,7 @@ if str(ROOT / 'trackers' / 'strongsort') not in sys.path:
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 import logging
+
 from yolov8.ultralytics.nn.autobackend import AutoBackend
 from yolov8.ultralytics.yolo.data.dataloaders.stream_loaders import LoadImages, LoadStreams
 from yolov8.ultralytics.yolo.data.utils import IMG_FORMATS, VID_FORMATS
@@ -42,7 +48,7 @@ from yolov8.ultralytics.yolo.utils.plotting import Annotator, colors, save_one_b
 from trackers.multi_tracker_zoo import create_tracker
 
 
-@torch.no_grad()
+#@torch.no_grad()
 def run(
         source='0',
         yolo_weights=WEIGHTS / 'yolov5m.pt',  # model.pt path(s),
@@ -78,7 +84,8 @@ def run(
         vid_stride=1,  # video frame-rate stride
         retina_masks=False,
 ):
-
+    
+    fstr = ''
     source = str(source)
 
     save_img = not nosave and not source.endswith('.txt')  # save inference images
@@ -145,7 +152,13 @@ def run(
     #model.warmup(imgsz=(1 if pt else bs, 3, *imgsz))  # warmup
     seen, windows, dt = 0, [], (Profile(), Profile(), Profile(), Profile())
     curr_frames, prev_frames = [None] * bs, [None] * bs
+    
+    st.write('Кадров: ', dataset.frames)
+    prg = st.progress(0.0)
+    
     for frame_idx, batch in enumerate(dataset):
+        prg.progress(frame_idx/dataset.frames)
+        
         path, im, im0s, vid_cap, s = batch
         visualize = increment_path(save_dir / Path(path[0]).stem, mkdir=True) if visualize else False
         with dt[0]:
@@ -251,6 +264,10 @@ def run(
                             with open(txt_path + '.txt', 'a') as f:
                                 f.write(('%g ' * 7 + '\n') % (frame_idx + 1, id, bbox_left,  # MOT format
                                                                bbox_top, bbox_w, bbox_h, cls))
+                                
+                                fstr = fstr+('%g ' * 7 + '\n') % (frame_idx + 1, id, bbox_left,  # MOT format
+                                                                  bbox_top, bbox_w, bbox_h, cls)
+                                
 
                         if save_vid or save_crop or show_vid:  # Add bbox/seg to image
                             c = int(cls)  # integer class
@@ -311,22 +328,27 @@ def run(
         LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}{s}")
     if update:
         strip_optimizer(yolo_weights)  # update model (to fix SourceChangeWarning)
+    return fstr
 
 
-def parse_opt():
+def parse_opt(yolow,sor):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yolo-weights', nargs='+', type=Path, default=WEIGHTS / 'yolov8s-seg.pt', help='model.pt path(s)')
+    #parser.add_argument('--yolo-weights', nargs='+', type=Path, default=WEIGHTS / 'yolov8s-seg.pt', help='model.pt path(s)')
+    parser.add_argument('--yolo-weights', nargs='+', type=Path, default= yolow, help='model.pt path(s)')
+    
     parser.add_argument('--reid-weights', type=Path, default=WEIGHTS / 'osnet_x0_25_msmt17.pt')
-    parser.add_argument('--tracking-method', type=str, default='deepocsort', help='deepocsort, botsort, strongsort, ocsort, bytetrack')
+    parser.add_argument('--tracking-method', type=str, default='bytetrack', help='deepocsort, botsort, strongsort, ocsort, bytetrack')
     parser.add_argument('--tracking-config', type=Path, default=None)
-    parser.add_argument('--source', type=str, default='0', help='file/dir/URL/glob, 0 for webcam')  
+    #parser.add_argument('--source', type=str, default='0', help='file/dir/URL/glob, 0 for webcam')
+    parser.add_argument('--source', type=str, default = sor, help='file/dir/URL/glob, 0 for webcam')
+    
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')
     parser.add_argument('--conf-thres', type=float, default=0.5, help='confidence threshold')
     parser.add_argument('--iou-thres', type=float, default=0.5, help='NMS IoU threshold')
     parser.add_argument('--max-det', type=int, default=1000, help='maximum detections per image')
     parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
     parser.add_argument('--show-vid', action='store_true', help='display tracking video results')
-    parser.add_argument('--save-txt', action='store_true', help='save results to *.txt')
+    parser.add_argument('--save-txt', action='store_false', help='save results to *.txt')
     parser.add_argument('--save-conf', action='store_true', help='save confidences in --save-txt labels')
     parser.add_argument('--save-crop', action='store_true', help='save cropped prediction boxes')
     parser.add_argument('--save-trajectories', action='store_true', help='save trajectories for each track')
@@ -354,16 +376,16 @@ def parse_opt():
     opt.imgsz *= 2 if len(opt.imgsz) == 1 else 1  # expand
     opt.tracking_config = ROOT / 'trackers' / opt.tracking_method / 'configs' / (opt.tracking_method + '.yaml')
     print_args(vars(opt))
+    
     return opt
 
 
 def main(opt):
     check_requirements(requirements=ROOT / 'requirements.txt', exclude=('tensorboard', 'thop'))
-    run(**vars(opt))
+    fstr = run(**vars(opt))
+    return fstr
 
 
-
-
-if __name__ == "__main__":
-    opt = parse_opt()
-    main(opt)
+#if __name__ == "__main__":
+ #   opt = parse_opt()
+ #   main(opt)
