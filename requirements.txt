@@ -1,20 +1,10 @@
 streamlit
 
 '''
-#-------------
-# pip install -r requirements.txt
 ultralytics==8.0.20
 
 opencv-python-headless
-#operator
-#pandas
-
-
-#from io import StringIO
-
-
-
-
+'''
 # Base ----------------------------------------
 gitpython
 ipython  # interactive notebook
