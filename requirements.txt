@@ -1,6 +1,6 @@
 streamlit
 #tensorflow-cpu
-protobuf=4.21.0
+protobuf==4.21.0
 
 pip==23.1.2
 
