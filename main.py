@@ -75,7 +75,7 @@ if t is not '':
     if (d <= 43):
 
         t = str(t)
-        p = 'Videos/'+t+'.mp4'
+        p = 'Video/'+t+'.mp4'
         vd = open(p,'rb')
         st.video(vd)
         yolo_weights = 'last_8n_e120.pt'
