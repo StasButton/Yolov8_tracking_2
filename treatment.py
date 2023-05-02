@@ -183,8 +183,8 @@ def END(fstr,turniket,f): # работа с файлом полученного 
 
 
     r_in,r_out,passlist =  Human_f(turniket,data) # подсчет входов и выходов
-    k,u = 0,0
-    #k,u = HelmUniform(tracker_data,passlist )
+
+    k,u = HelmUniform(tracker_data,passlist )
     dl = [f,r_in,r_out,k,u]
 
     return dl
