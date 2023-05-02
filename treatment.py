@@ -170,10 +170,12 @@ def Human_f(Y,tracker_data):
 
 
 def END(fstr,turniket_dict): # работа с файлом полученного трекером
+  pass
   # конвертация файла в датафрейм
+  '''
   try: # если есть такой файл то обрабатываем
     #df = pd.DataFrame(columns=['входящие','выходящие','каски','жилеты'])
-    '''
+    
     data= StringIO(fstr)
     data = pd.read_csv(data,  sep=' ', header=None, usecols=[0,1,2,3,4,5,6] )
     data.columns = ['frame', 'id',   'left', 'top', 'width', 'height', 'cl']
@@ -183,12 +185,12 @@ def END(fstr,turniket_dict): # работа с файлом полученног
     k,u = HelmUniform(tracker_data,pl)
 
     dl = [f,r_in,r_out,k,u]
-    '''
+
     return dl
   except: # если .txt файла нет (в пустых видео) , тогда нули.
     #dl = [f,0,0,0,0]
     return dl
-
+  '''
 ################################################################
 
 
