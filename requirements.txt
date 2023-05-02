@@ -1,3 +1,7 @@
 streamlit
 ultralytics==8.0.20
 
+opencv-python-headless
+gitpython
+ipython 
+
