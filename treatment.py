@@ -185,9 +185,9 @@ def END(fstr,turniket): # работа с файлом полученного т
     r_in,r_out,passlist =  Human_f(turniket,data) # подсчет входов и выходов
     '''
     k,u = HelmUniform(tracker_data,pl)
-
     dl = [f,r_in,r_out,k,u]
     '''
+    dl = [f,0,0,0,0]
     return dl
 
   except: # если .txt файла нет (в пустых видео) , тогда нули.
