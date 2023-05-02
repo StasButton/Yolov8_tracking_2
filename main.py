@@ -61,8 +61,7 @@ if t is not '':
         
         if(len(fstr)) != 0:
             import treatment as obr
-            st.write(turniket_dict[int(t)])
-            #obr.END(turniket_dict[t]) # df =  fstr,turniket_dict[t]
+            obr.END(fstr,turniket_dict[int(t)]) # df =  fstr,turniket_dict[t]
             st.write('Результат роботы нейросети')
             
             #st.write(df)
