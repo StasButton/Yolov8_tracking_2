@@ -24,7 +24,6 @@ def load_vid():
 st.title('YOLOv8_tracking людей, касок, жилетов')
 st.write('Загрузка видеоролика (из репозитория)')
 
-'''
 t, www = load_vid()
 if www is not '':
     st.write(www)
@@ -75,4 +74,4 @@ if t is not '':
             st.write(df)
 
 
-'''
+
