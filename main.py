@@ -61,10 +61,10 @@ if t is not '':
         
         if(len(fstr)) != 0:
             import treatment as obr
-            obr.END(fstr,turniket_dict[int(t)],t) # df =  fstr,turniket_dict[t]
+            df = obr.END(fstr,turniket_dict[int(t)],t) # df =  fstr,turniket_dict[t]
             st.write('Результат роботы нейросети')
             
-            #st.write(df)
+            st.write(df)
         else :
             df = pd.DataFrame(columns=['files','in','out','каски','жилеты'])
             #st.write('Результат роботы нейросети')
