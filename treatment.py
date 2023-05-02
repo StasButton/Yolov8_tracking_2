@@ -187,7 +187,7 @@ def END(fstr,turniket,f): # работа с файлом полученного 
     k,u = HelmUniform(tracker_data,pl)
     dl = [f,r_in,r_out,k,u]
     '''
-    dl = [f,0,0,0,0]
+    dl = [f,r_in,r_out,0,0]
     return dl
 
   except: # если .txt файла нет (в пустых видео) , тогда нули.
