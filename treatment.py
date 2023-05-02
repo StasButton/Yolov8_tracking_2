@@ -170,7 +170,7 @@ def Human_f(Y,tracker_data):
 
 
 
-def END(Y): # работа с файлом полученного трекером fstr,turniket_dict
+def END(Y,k): # работа с файлом полученного трекером fstr,turniket_dict
   st.write(Y)
   pass
   # конвертация файла в датафрейм
