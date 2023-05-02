@@ -170,18 +170,18 @@ def Human_f(Y,tracker_data):
 
 
 
-def END(Y,k): # работа с файлом полученного трекером fstr,turniket_dict
-  st.write(Y)
-  pass
+def END(fstr,turniket): # работа с файлом полученного трекером fstr,turniket_dict
+
   # конвертация файла в датафрейм
-  '''
+  
   try: # если есть такой файл то обрабатываем
     #df = pd.DataFrame(columns=['входящие','выходящие','каски','жилеты'])
     
     data= StringIO(fstr)
     data = pd.read_csv(data,  sep=' ', header=None, usecols=[0,1,2,3,4,5,6] )
     data.columns = ['frame', 'id',   'left', 'top', 'width', 'height', 'cl']
-    
+    st.weite(turniket)
+    '''
     r_in,r_out,passlist =  Human_f(turniket_dict[f],data) # подсчет входов и выходов
 
     k,u = HelmUniform(tracker_data,pl)
