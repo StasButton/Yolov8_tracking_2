@@ -65,7 +65,7 @@ if t is not '':
             #df = obr.END(t,turniket_dict[t])
             st.write(fstr,'Результат роботы нейросети')
             
-            st.write(df)
+            #st.write(df)
         else :
             df = pd.DataFrame(columns=['files','in','out','каски','жилеты'])
             #st.write('Результат роботы нейросети')
