@@ -3,38 +3,16 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-turniket = 0 
-def turnlevel(d):
-    ff = []; 
-    f1 = [1,2,3,5,8,9,10,11,12,13,15,16,17,18,19]
-    ff.append(f1)
-    f2 = [6,7,14]
-    ff.append(f2)
-    f3 = [20]
-    ff.append(f3)
-    f4 = [21,22,23,24,31,36,38,39,40,42]
-    ff.append(f4)
-    f5 = [25,26,27,29,30]
-    ff.append(f5)
-    f6 = [4]
-    ff.append(f6)
-
-    for i in range(len(ff)):
-        for i2 in ff[i]:
-            if i2 == d:
-              if i == 0:
-                turniket = 470
-              if i == 1:
-                turniket = 580
-              if i == 2:
-                turniket = 850
-              if i == 3:
-                turniket = 430
-              if i == 4:
-                turniket = 510
-              if i == 5:
-                turniket = 910
-    return  turniket
+turniket_dict =  {1:470,2:470,3:470,4:910,5:470,\
+                  6:580,7:580,8:470,9:470,10:470,\
+                  11:470,12:470,13:470,14:580,15:470,\
+                  16:470,17:470,18:470,19:470,20:850,\
+                  21:430,22:430,23:430,24:430,25:510,\
+                  26:510,27:510,28:510,29:510,30:510,\
+                  31:430,32:0,33:0,34:0,35:0,\
+                  36:430,37:0,38:430,39:430,40:430,\
+                  41:0,42:430,43:0\
+                }
         #-------------------------
 def load_vid():
     t = st.text_input("Введите имя файла (без расширения) (1-43) и нажмите Enter")
@@ -65,18 +43,15 @@ if www is not '':
     st.write(df)
 
 
-
-
 if t is not '':
     
     d = int(t)
     st.write(t+'.mp4')
-    turniket = turnlevel(d)
 
     if (d <= 43):
 
-        t = str(t)
-        p = 'Video/'+t+'.mp4'
+        ts = str(t)
+        p = 'Video/'+ts+'.mp4'
         vd = open(p,'rb')
         st.video(vd)
         yolo_weights = 'last_8n_e120.pt'
@@ -86,7 +61,7 @@ if t is not '':
         
         if(len(fstr)) != 0:
             import treatment as obr
-            df = obr.END(fstr,turniket)
+            df = obr.END(t,turniket_dict[t])
             st.write('Результат роботы нейросети')
             
             st.write(df)
