@@ -2,7 +2,7 @@ import io
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+'''
 turniket = 0 
 def turnlevel(d):
     ff = []; 
@@ -95,3 +95,4 @@ if t is not '':
             df.loc[0] = [1,0,0,0,0]
             st.write(df)
 
+'''
