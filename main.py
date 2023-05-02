@@ -66,7 +66,7 @@ if www is not '':
 
 
 
-'''
+
 if t is not '':
     
     d = int(t)
@@ -96,4 +96,4 @@ if t is not '':
             df.loc[0] = [1,0,0,0,0]
             st.write(df)
 
-'''
+
