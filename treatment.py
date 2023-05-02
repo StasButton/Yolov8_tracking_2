@@ -1,5 +1,6 @@
 from io import StringIO
 import pandas as pd
+import streamlit as st
 
 #Классы
 class Human():
@@ -169,7 +170,8 @@ def Human_f(Y,tracker_data):
 
 
 
-def END(): # работа с файлом полученного трекером fstr,turniket_dict
+def END(t): # работа с файлом полученного трекером fstr,turniket_dict
+  st.write(t)
   pass
   # конвертация файла в датафрейм
   '''
