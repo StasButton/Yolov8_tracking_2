@@ -2,7 +2,7 @@ import io
 import streamlit as st
 import pandas as pd
 import numpy as np
-'''
+
 turniket = 0 
 def turnlevel(d):
     ff = []; 
@@ -42,6 +42,7 @@ def load_vid():
     
     return t, www
 #==================================================================   
+'''
 st.title('YOLOv8_tracking людей, касок, жилетов')
 st.write('Загрузка видеоролика (из репозитория)')
 
