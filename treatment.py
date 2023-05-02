@@ -176,11 +176,13 @@ def END(fstr,turniket_dict): # работа с файлом полученног
     data= StringIO(fstr)
     data = pd.read_csv(data,  sep=' ', header=None, usecols=[0,1,2,3,4,5,6] )
     data.columns = ['frame', 'id',   'left', 'top', 'width', 'height', 'cl']
+    '''
     r_in,r_out,passlist =  Human_f(turniket_dict[f],data) # подсчет входов и выходов
 
     k,u = HelmUniform(tracker_data,pl)
 
     dl = [f,r_in,r_out,k,u]
+    '''
     return dl
   except: # если .txt файла нет (в пустых видео) , тогда нули.
     dl = [f,0,0,0,0]
