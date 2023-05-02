@@ -61,7 +61,10 @@ if t is not '':
         
         if(len(fstr)) != 0:
             import treatment as obr
-            df = obr.END(fstr,turniket_dict[int(t)],t) # df =  fstr,turniket_dict[t]
+            df = pd.DataFrame(columns=['files','in','out','каски','жилеты'])
+            dl = obr.END(fstr,turniket_dict[int(t)],t) # df =  fstr,turniket_dict[t]
+            df.loc[0] = dl
+            
             st.write('Результат роботы нейросети')
             
             st.write(df)
