@@ -22,6 +22,14 @@ def load_vid():
 #==================================================================
 with st.sidebar:
     #www = st.file_uploader("Upload file", type=["mp4"])
+    st.download_button(
+    label="Download data as mp4",
+    data=mp4,
+    file_name='1.mp4',
+    #mime='text/csv',
+)
+    
+    st.write(file_name)
     st.write('Загрузка видеоролика (из репозитория)')
     t = st.text_input("Введите имя файла (без расширения) (1-43) и нажмите Enter")
     www = st.text_input("html-link. Уровень турникета для видеороликов - 1,2,3,5,8,9,10,11,12,13,15,16,17,18,19")
