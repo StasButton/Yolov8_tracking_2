@@ -24,9 +24,9 @@ with st.sidebar:
     #www = st.file_uploader("Upload file", type=["mp4"])
     st.download_button(
     label="Download data as mp4",
-    #data=mp4,
+
     file_name='1.mp4',
-    #mime='text/csv',
+    mime= "video/mp4",
 )
     
     st.write(file_name)
