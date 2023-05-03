@@ -19,8 +19,14 @@ def load_vid():
     www = st.text_input("html-link. Уровень турникета для видеороликов - 1,2,3,5,8,9,10,11,12,13,15,16,17,18,19")
     
     return t, www
-#==================================================================   
-www = st.sidebar.file_uploader("Upload an image", type=["mp4"])
+#==================================================================
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    st.sidebar.file_uploader("Upload an image", type=["mp4"])
+    )
+
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
 st.write('Загрузка видеоролика (из репозитория)')
