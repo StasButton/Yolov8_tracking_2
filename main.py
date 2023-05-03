@@ -21,7 +21,7 @@ def load_vid():
     return t, www
 #==================================================================
 with st.sidebar:
-    www = st.file_uploader("Upload file", type='mp4')
+    #www = st.file_uploader("Upload file", type='mp4')
     
     st.write('Загрузка видеоролика (из репозитория)')
     t = st.text_input("Введите имя файла (без расширения) (1-43) и нажмите Enter")
@@ -36,7 +36,7 @@ if www is not '':
     turniket = 470
     st.video(www)
     yolo_weights = 'last_8n_e120.pt'
-    '''
+    
     import yolov8_tracking.track as track
     opt = track.parse_opt(yolo_weights,www)
     fstr = track.main(opt)
@@ -48,7 +48,7 @@ if www is not '':
         st.write('Результат роботы нейросети')
 
     st.write(df)
-    '''
+    
 if t is not '':
     
     d = int(t)
