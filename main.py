@@ -21,8 +21,7 @@ def load_vid():
     return t, www
 #==================================================================
 with st.sidebar:
-    #www = st.file_uploader("Upload file", type=["mp4"])
-    st.download_button('ggggg', data, file_name=None, key=None, help=None)
+    www = st.file_uploader("Upload file", type='mp4')
     
     st.write(file_name)
     st.write('Загрузка видеоролика (из репозитория)')
