@@ -20,7 +20,6 @@ def load_vid():
     
     return t, www
 #==================================================================   
-col1, col2 = st.columns(2)
 my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
