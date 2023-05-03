@@ -30,7 +30,7 @@ with st.sidebar:
     #t, www = load_vid()
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
-    
+'''
 if www is not '':
     st.write(www)
     turniket = 470
@@ -48,7 +48,7 @@ if www is not '':
         st.write('Результат роботы нейросети')
 
     st.write(df)
-    
+'''
 if t is not '':
     
     d = int(t)
