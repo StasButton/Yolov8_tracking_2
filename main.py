@@ -28,7 +28,6 @@ with st.sidebar:
     #t, www = load_vid()
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
-
     
 if www is not '':
     st.write(www)
@@ -40,7 +39,7 @@ if www is not '':
     fstr = track.main(opt)
     if(len(fstr)) != 0:
         import treatment as obr
-        df = obr.END(fstr,turniket,1)
+        df = obr.END(fstr,turniket,'1')
         st.write('Результат роботы нейросети')
 
     st.write(df)
