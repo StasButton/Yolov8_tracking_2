@@ -21,14 +21,14 @@ def load_vid():
     return t, www
 #==================================================================
 with st.sidebar:
-    st.file_uploader("Upload file", type=["mp4"])
-    
-
+    www = st.file_uploader("Upload file", type=["mp4"])
+    st.write('Загрузка видеоролика (из репозитория)')
+    t, www = load_vid()
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
-st.write('Загрузка видеоролика (из репозитория)')
 
-t, www = load_vid()
+
+
 if www is not '':
     st.write(www)
     turniket = 470
