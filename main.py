@@ -22,7 +22,7 @@ def load_vid():
 #==================================================================
 with st.sidebar:
     st.file_uploader("Upload file", type=["mp4"])
-    )
+    
 
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
