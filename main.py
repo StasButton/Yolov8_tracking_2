@@ -67,7 +67,7 @@ if t is not '':
         
         if(len(fstr)) != 0:
             import treatment as obr
-            df = pd.DataFrame(columns=['files','in','out','каски','жилеты'])
+            df = pd.DataFrame(columns=['file','in','out','каски','жилеты'])
             dl = obr.END(fstr,turniket_dict[int(t)],t) # df =  fstr,turniket_dict[t]
             df.loc[0] = dl
             
