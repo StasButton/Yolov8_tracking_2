@@ -37,13 +37,15 @@ if www is not '':
     import yolov8_tracking.track as track
     opt = track.parse_opt(yolo_weights,www)
     fstr = track.main(opt)
+    st.write(fstr)
+    '''
     if(len(fstr)) != 0:
         import treatment as obr
         df = obr.END(fstr,turniket,'1')
         st.write('Результат роботы нейросети')
 
     st.write(df)
-
+    '''
 if t is not '':
     
     d = int(t)
