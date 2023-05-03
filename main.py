@@ -75,7 +75,7 @@ if t is not '':
             
             st.write(df)
         else :
-            df = pd.DataFrame(columns=['files','in','out','каски','жилеты'])
+            df = pd.DataFrame(columns=['file','in','out','каски','жилеты'])
             #st.write('Результат роботы нейросети')
             df.loc[0] = [1,0,0,0,0]
             st.write(df)
