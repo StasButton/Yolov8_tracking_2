@@ -20,7 +20,7 @@ def load_vid():
     
     return t, www
 #==================================================================   
-my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+www = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
 st.write('Загрузка видеоролика (из репозитория)')
