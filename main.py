@@ -21,10 +21,7 @@ def load_vid():
     return t, www
 #==================================================================
 with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    st.sidebar.file_uploader("Upload an image", type=["mp4"])
+    st.file_uploader("Upload file", type=["mp4"])
     )
 
 
