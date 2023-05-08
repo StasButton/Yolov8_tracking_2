@@ -39,9 +39,9 @@ if www is not '':
     
     import yolov8_tracking.track as track
     with io.BytesIO() as f:
-      im.save(f, format='mpeg')
+      im.save(f, format='mp4')
       data = f.getvalue()
-    opt = track.parse_opt(yolo_weights,www)
+    #opt = track.parse_opt(yolo_weights,www)
     #fstr = track.main(opt)
     #st.write(fstr)
     
