@@ -34,12 +34,11 @@ st.write(type(www))
 if www is not '':
 
     turniket = 470
-
     st.video(www)
     yolo_weights = 'last_8n_e120.pt'
     
     import yolov8_tracking.track as track
-    opt = track.parse_opt(yolo_weights,io.BytesIO(www.getvalue())
+    #opt = track.parse_opt(yolo_weights,io.BytesIO(www.getvalue())
     #fstr = track.main(opt)
     #st.write(fstr)
     
@@ -51,7 +50,7 @@ if www is not '':
   #  st.write(df)
 
 if t is not '':
-    
+   
     d = int(t)
     st.write(t+'.mp4')
 
