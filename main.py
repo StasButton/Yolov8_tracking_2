@@ -42,7 +42,8 @@ if www is not '':
     fstr = track.main(opt)
     st.write(fstr)
     
-    #if(len(fstr)) != 0:
+    if(len(fstr)) != 0:
+      print(fstr)
      #   import treatment as obr
       #  df = obr.END(fstr,turniket,'1')
        # st.write('Результат роботы нейросети')
