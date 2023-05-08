@@ -40,7 +40,7 @@ if www is not '':
     
     import yolov8_tracking.track as track
     with io.BytesIO() as f:
-      val = www.getvalue()
+      read = www.read()
       pass
       #www.save(f, format='mp4')
       #data = f.getvalue()
