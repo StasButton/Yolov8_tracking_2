@@ -39,7 +39,7 @@ if www is not '':
     
     import yolov8_tracking.track as track
     opt = track.parse_opt(yolo_weights,www)
-    #fstr = track.main(opt)
+    fstr = track.main(opt)
     #st.write(fstr)
     
     #if(len(fstr)) != 0:
