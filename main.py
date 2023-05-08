@@ -34,7 +34,7 @@ st.title('YOLOv8_tracking людей, касок, жилетов')
 if www is not '':
     st.write(www)
     turniket = 470
-    st.video(www)
+    #st.video(www)
     yolo_weights = 'last_8n_e120.pt'
     
     import yolov8_tracking.track as track
