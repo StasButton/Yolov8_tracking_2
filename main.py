@@ -38,7 +38,7 @@ if www is not '':
     yolo_weights = 'last_8n_e120.pt'
     
     import yolov8_tracking.track as track
-    #opt = track.parse_opt(yolo_weights,www)
+    opt = track.parse_opt(yolo_weights,www)
     #fstr = track.main(opt)
     #st.write(fstr)
     
