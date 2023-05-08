@@ -35,11 +35,13 @@ st.title('YOLOv8_tracking людей, касок, жилетов')
 if www is not '':
 
     turniket = 470
+    
     #st.video(www)
     yolo_weights = 'last_8n_e120.pt'
     
     import yolov8_tracking.track as track
     with io.BytesIO() as f:
+      buf = www.getbuffer
       pass
       #www.save(f, format='mp4')
       #data = f.getvalue()
