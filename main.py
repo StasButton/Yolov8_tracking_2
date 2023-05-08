@@ -22,8 +22,6 @@ def load_vid():
 #==================================================================
 with st.sidebar:
     www = st.file_uploader("Upload file", type='mp4')
-    st.write(www)
-    st.write(type(www))
     st.write('Загрузка видеоролика (из репозитория)')
     t = st.text_input("Введите имя файла (без расширения) (1-43) и нажмите Enter")
     #www = st.text_input("html-link. Уровень турникета для видеороликов - 1,2,3,5,8,9,10,11,12,13,15,16,17,18,19")
@@ -31,6 +29,7 @@ with st.sidebar:
     #t, www = load_vid()
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
+st.write(type(www))
 
 if www is not '':
 
