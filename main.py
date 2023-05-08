@@ -39,8 +39,8 @@ if www is not '':
     
     import yolov8_tracking.track as track
     
-    #with fitz.open(stream=www.read(), filetype="mp4") as file:
-    file = www.read()
+    with fitz.open(stream=www.read(), filetype="mp4") as file:
+    #file = www.read()
     f = io.BytesIO()
     file.save(f)
     data = f.getvalue()
