@@ -42,7 +42,7 @@ if www is not '':
     with io.BytesIO() as f:
       read = www.read()
       pass
-      #www.save(f, format='mp4')
+      read.save(f, format='mp4')
       #data = f.getvalue()
     #opt = track.parse_opt(yolo_weights,www)
     #fstr = track.main(opt)
