@@ -29,7 +29,6 @@ with st.sidebar:
     #t, www = load_vid()
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
-st.write(type(www))
 
 if www is not '':
 
