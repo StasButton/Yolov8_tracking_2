@@ -30,10 +30,6 @@ with st.sidebar:
 
 st.title('YOLOv8_tracking людей, касок, жилетов')
 
-if www is not '':
-
-  pass
-
 
 if t is not '':
    
