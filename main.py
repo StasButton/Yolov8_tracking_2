@@ -38,26 +38,7 @@ if www is not '':
     yolo_weights = 'last_8n_e120.pt'
     
     import yolov8_tracking.track as track
-    
-    with fitz.open(stream=www.read(), filetype="mp4") as file:
-      #file = www.read()
-      f = io.BytesIO()
-      file.save(f)
-      data = f.getvalue()
-    #with io.BytesIO() as f:
-       #im.save(f, format='JPEG')
-       #data = f.getvalue()
-    #opt = track.parse_opt(yolo_weights,www.getvalue())
-    #fstr = track.main(opt)
-    #st.write(fstr)
-    
-    #if(len(fstr)) != 0:
-      #print(fstr)
-     #   import treatment as obr
-      #  df = obr.END(fstr,turniket,'1')
-       # st.write('Результат роботы нейросети')
 
-  #  st.write(df)
 
 if t is not '':
    
