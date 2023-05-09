@@ -33,11 +33,7 @@ st.write(type(www))
 
 if www is not '':
 
-    turniket = 470
-    st.video(www)
-    yolo_weights = 'last_8n_e120.pt'
-    
-    import yolov8_tracking.track as track
+  pass
 
 
 if t is not '':
